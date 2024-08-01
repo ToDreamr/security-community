@@ -2,7 +2,7 @@ package com.pray.security.handler;
 
 import com.pray.entity.po.LoginUser;
 import com.pray.entity.vo.response.AuthorizeVO;
-import com.pray.service.AccountService;
+import com.pray.service.UserService;
 import com.pray.utils.JwtUtils;
 import com.pray.utils.PrayConstants;
 import com.pray.utils.Result;
@@ -29,15 +29,15 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
-    AccountService accountService;
+    UserService userService;
     JwtUtils jwtUtils;
     StringRedisTemplate stringRedisTemplate;
 
     /**
      * 注入所需的Bean
      */
-    public LoginSuccessHandler(AccountService accountService, JwtUtils jwtUtils,StringRedisTemplate stringRedisTemplate) {
-        this.accountService = accountService;
+    public LoginSuccessHandler(UserService userService, JwtUtils jwtUtils, StringRedisTemplate stringRedisTemplate) {
+        this.userService = userService;
         this.jwtUtils = jwtUtils;
         this.stringRedisTemplate=stringRedisTemplate;
     }

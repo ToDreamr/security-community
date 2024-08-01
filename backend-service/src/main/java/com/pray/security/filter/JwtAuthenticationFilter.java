@@ -46,16 +46,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, @NotNull HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //从请求头中获取响应认证
         String requestURI = request.getRequestURI();
-        if ("/auth/login".equals(requestURI))
-        {
-            filterChain.doFilter(request,response);
-            return;
-        }
+
         String authorization = request.getHeader("Authorization");
         log.info("请求路径：{}，尝试获取头部authorization：{}",requestURI,authorization);
-        if (authorization==null||"GET".equals(request.getMethod())){
+        if (requestURI.equals("/auth/code")){
             filterChain.doFilter(request,response);
-            return;
         }
         try {
             DecodedJWT jwt = utils.resolve(authorization);

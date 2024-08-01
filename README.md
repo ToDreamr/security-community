@@ -34,7 +34,7 @@ sql执行脚本在项目doc文件目录下，Security在Spring6下已经废除
                 )
                 .formLogin(conf -> conf
                         .loginProcessingUrl("/auth/login").permitAll()
-                        .successHandler(new LoginSuccessHandler(accountService,jwtUtils,stringRedisTemplate))
+                        .successHandler(new LoginSuccessHandler(userService,jwtUtils,stringRedisTemplate))
                         .failureHandler(new LoginFailureHandler())
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

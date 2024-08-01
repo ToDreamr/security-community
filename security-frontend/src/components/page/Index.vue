@@ -1,9 +1,6 @@
 <script >
   import TopNav from "@/components/page/TopNav.vue";
   import {ElMessage} from "element-plus";
-  import Axios from "@/api/request/request";
-  import Body from "@/components/page/ponents/Body.vue";
-  import IndexLeft from "@/components/page/ponents/IndexLeft.vue";
   import index from "@/components/page/Index.vue";
   export default {
     // eslint-disable-next-line vue/multi-word-component-names
@@ -13,7 +10,7 @@
         return index
       }
     },
-    components: {IndexLeft, Body, TopNav},
+    components: {TopNav},
     data(){
       return{
         tableData:[],//数据展示
@@ -23,7 +20,7 @@
       ElMessage
     },
     mounted() {
-     
+
     }
   }
 </script>

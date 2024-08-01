@@ -1,8 +1,8 @@
 import {ElMessage} from "element-plus";
-import Axios from "@/api/request/request";
+import request from "@/api/request/request";
 //还要处理相应的异常错误信息
 function login(username,password,rememberMe,success){
-  Axios.post('/auth/login', {
+  request.post('/auth/login', {
       username: username,
       password: password,
       rememberMe:rememberMe
@@ -13,6 +13,7 @@ function login(username,password,rememberMe,success){
   ).then(({data})=>{
       if (data.code===200&&data.data.token!=='') {
           sessionStorage.setItem("token", data.data.token);
+          sessionStorage.setItem("username",data.data.username)
           ElMessage.success({
               message: "登录成功，欢迎您，尊敬的 " + data.data.username + "用户!"
           })
@@ -30,12 +31,12 @@ function    logout(){
     const token=sessionStorage.getItem('token');
             //注意后端Spring-Security框架的退出登录是一个POST请求。
             if(token!==''&&token!==null){
-                Axios.post('/auth/logout',
-                { 
+                request.post('/auth/logout',
+                {
                     headers:{
                         'authorization':token
                     }
-                } 
+                }
         )
         .then(({res})=>{
             sessionStorage.removeItem("token")//除去token
@@ -45,6 +46,6 @@ function    logout(){
         ElMessage.error("不可重复退出登出 ！");
     }
 }
-    
+
 
 export { login ,logout }

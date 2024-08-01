@@ -27,4 +27,6 @@ public class PrayConstants {
     public static final long NULL_TTL = 2L;
     public static final String TYPE_LOCK = "pray:lock:";
     public static final int USER_REMEMBER_SEC = 60*7;
+    public static final int COMMENT_IM_MAIL_COUNT = 3;
+    public static final int CODE_MAIL_COUNT = 3;
 }

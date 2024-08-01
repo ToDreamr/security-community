@@ -41,36 +41,6 @@ const routes=[
         name: 'index',
         component:()=>import("@/components/page/Index.vue")
     },
-    {
-        name:'analysis',
-        path:'/analysis',
-        component:()=>import('@/components/page/content/Analysis.vue')
-    },
-    {
-        name:'character-out-fit',
-        path:'/character-out-fit',
-        component:()=>import('@/components/page/content/CharacterOutFit.vue')
-    },
-    {
-        name:'history',
-        path:'/history',
-        component:()=>import('@/components/page/content/Hsitory.vue')
-    },
-    {
-        name:'predict',
-        path:'/predict',
-        component:()=>import('@/components/page/content/Predict.vue')
-    },
-    {
-        name:'pvp',
-        path:'/pvp',
-        component:()=>import('@/components/page/content/PVP.vue')
-    },
-    {
-        name:'team-rating',
-        path:'/team-rating',
-        component:()=>import('@/components/page/content/TeamRating.vue')
-    },
 ]
 
 const router = createRouter({

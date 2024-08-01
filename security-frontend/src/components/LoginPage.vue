@@ -3,7 +3,7 @@
     <div >
       <div>
           <h3 style="align-content: center;align-items: center ;color: white;font-size: 80px;font-family: 华文宋体,serif">
-            Genshin-Impact 祈愿分析登录</h3>
+            登录-认证框架</h3>
       </div>
       <div class="container">
         <el-space :fill="false">
@@ -11,7 +11,7 @@
             <div class="right_box">
               <div style="margin-top: 0">
                 <div style="font-size: 25px;font-weight: bold">登录</div>
-                <div style="font-size: 14px;color: grey">欢迎登录原神祈愿分析，请填写相关信息</div>
+                <div style="font-size: 14px;color: grey">欢迎登录</div>
               </div>
               <el-form :model="form" >
                 <el-form-item>
@@ -66,7 +66,7 @@
 
 </template>
 <script>
-import Axios from "@/api/request/request";
+import request from "@/api/request/request";
 import router from "@/router/router";
 
 import {login} from "@/api/net";
@@ -86,7 +86,7 @@ export default {
   },
   methods:{
     gitee(){
-      Axios.post('/gitee',"")
+      request.post('/gitee',"")
     },
     router() {
       return router
@@ -104,12 +104,6 @@ export default {
        router.push('/register')
     },
     getImgCode(){
-      // Axios.get(`auth/captchaImage`).then(({data})=>{
-      
-      //   const blob = new Blob([data], { type: 'image/jpeg' }); // 创建Blob对象
-      //   this.imgSrc = URL.createObjectURL(blob).slice(5); // 将Blob对象的URL赋值给imageSrc
-      //   console.log(imgSrc);
-      // })
       this.imgSrc="http://localhost:8081/api/auth/captchaImage";
     },
   },
@@ -126,12 +120,12 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: url("../assets/login.jpg");
+    background: url("../assets/img/login.jpg");
     background-size: cover;
     .login-input{
       margin-right: 5%;
       margin-left: 5%;
-      height: 40px 
+      height: 40px
     }
   .container{
     display: inherit;

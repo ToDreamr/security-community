@@ -18,6 +18,7 @@
         <module>backend-service</module>
         <module>backend-common</module>
         <module>backend-dao</module>
+        <module>backend-generator</module>
     </modules>
 
     <dependencyManagement>
@@ -89,12 +90,17 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>3.1.2</version>
-
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-redis</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-mail</artifactId>
+                <version>2.5.1</version>
             </dependency>
 
             <dependency>
@@ -124,11 +130,6 @@
                 <scope>compile</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-mail</artifactId>
-                <version>3.1.2</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>

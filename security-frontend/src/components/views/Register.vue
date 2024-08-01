@@ -75,7 +75,7 @@
 <script >
 
 import router from "@/router/router";
-import Axios from "@/api/request/request";
+import request from "@/api/request/request";
 export default {
   setup(){
 
@@ -101,7 +101,7 @@ export default {
         this.$message.error("用户名和密码不能为空！");
         return
       }
-            Axios.post("/auth/register",{
+            request.post("/auth/register",{
               username:this.form.username,
               password:this.form.password,
               email:this.form.email,
@@ -124,7 +124,7 @@ export default {
       if (!this.isValidEmail(email)){
         this.$message.error("输入邮箱格式有误")
       }else {
-        Axios.post(`/auth/code?email=${email}`).then(({data})=>{
+        request.post(`/auth/code?email=${email}`).then(({data})=>{
           if (data){
             this.$message.success("获取验证码成功，请前往邮箱查收！")
           }

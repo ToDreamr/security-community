@@ -4,7 +4,7 @@ import com.pray.security.filter.JwtAuthenticationFilter;
 import com.pray.security.handler.LogOutHandler;
 import com.pray.security.handler.LoginFailureHandler;
 import com.pray.security.handler.LoginSuccessHandler;
-import com.pray.service.AccountService;
+import com.pray.service.UserService;
 import com.pray.utils.JwtUtils;
 import com.pray.utils.PrayConstants;
 import jakarta.annotation.Resource;
@@ -34,7 +34,7 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 @EnableWebSecurity//开启之后会默认注册大量的过滤器链条
 public class SecurityConfig{
     @Resource
-    private AccountService accountService;
+    private UserService userService;
     @Resource
     private JwtUtils jwtUtils;//注入jwt的token生成工具
     @Resource
@@ -63,7 +63,7 @@ public class SecurityConfig{
                 )
                 .formLogin(conf -> conf
                         .loginProcessingUrl("/auth/login").permitAll()
-                        .successHandler(new LoginSuccessHandler(accountService,jwtUtils,stringRedisTemplate))
+                        .successHandler(new LoginSuccessHandler(userService,jwtUtils,stringRedisTemplate))
                         .failureHandler(new LoginFailureHandler())
                 )
                 //配置记住我

@@ -17,7 +17,7 @@ public class JwtAuthUtils {
     public  String SECRET_KEY;
     @Value("${spring.security.jwt.expire}")
     private long expireTime;
-    private String header="authorization";
+    private final String header="authorization";
     private String getToken(HttpServletRequest request)
     {
         String token = request.getHeader(header);

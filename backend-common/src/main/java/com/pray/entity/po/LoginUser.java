@@ -4,15 +4,12 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 用户表
@@ -40,10 +37,6 @@ public class LoginUser implements Serializable, UserDetails {
 
     private String email;
 
-    /**
-     * 用户是否启用？1：启用，0：禁用当前用户
-     */
-    private boolean enabled;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -111,9 +104,5 @@ public class LoginUser implements Serializable, UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
     }
 }
