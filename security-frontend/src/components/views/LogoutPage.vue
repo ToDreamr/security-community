@@ -33,6 +33,7 @@
 <script>
 import router from "@/router/router";
 import {logout} from "@/api/net"
+
 export default {
   name: 'LogoutPage',
   data(){

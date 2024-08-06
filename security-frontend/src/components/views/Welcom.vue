@@ -2,7 +2,7 @@
     <LoginPage/>
 </template>
 
-<script >
+<script>
 
 import LoginPage from "@/components/LoginPage.vue";
 

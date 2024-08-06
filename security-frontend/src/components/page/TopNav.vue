@@ -1,6 +1,7 @@
-<script >
+<script>
 import request from "@/api/request/request";
-  export default {
+
+export default {
     data(){
       return{
         isLogin : false,
@@ -42,7 +43,7 @@ import request from "@/api/request/request";
 </script>
 
 <template>
-  <h3>{{this.userInfo.username}},欢迎您!!!{{userInfo.email}}</h3>
+  {{userInfo}}
   <button @click="printUserInfo">用户信息</button>
 </template>
 <style scoped>

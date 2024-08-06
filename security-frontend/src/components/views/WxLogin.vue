@@ -1,5 +1,5 @@
 <script setup>
- import LoginCode from "@/components/prQrcode/index.vue"
+import LoginCode from "@/components/prQrcode/index.vue"
 </script>
 
 <template>

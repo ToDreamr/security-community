@@ -7,9 +7,9 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface TransactionLog {
+public @interface BackendBaseLog {
     //日志内容
-    String title() default "";
+    String title() default "默认日志";
     //日志分类
-    String serviceType() default  "";
+    String serviceType() default  "普通服务";
 }

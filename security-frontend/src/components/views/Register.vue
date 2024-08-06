@@ -72,10 +72,11 @@
   </div>
 </template>
 
-<script >
+<script>
 
 import router from "@/router/router";
 import request from "@/api/request/request";
+
 export default {
   setup(){
 

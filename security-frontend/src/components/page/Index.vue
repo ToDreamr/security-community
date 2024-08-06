@@ -1,8 +1,9 @@
-<script >
-  import TopNav from "@/components/page/TopNav.vue";
-  import {ElMessage} from "element-plus";
-  import index from "@/components/page/Index.vue";
-  export default {
+<script>
+import TopNav from "@/components/page/TopNav.vue";
+import {ElMessage} from "element-plus";
+import index from "@/components/page/Index.vue";
+
+export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name:'Index',
     computed: {

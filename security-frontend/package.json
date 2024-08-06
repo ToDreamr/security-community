@@ -14,7 +14,7 @@
     "element": "^0.1.4",
     "element-plus": "^2.3.12",
     "pinia": "^2.1.7",
-    "pnpm": "^8.15.3",
+    "pnpm": "^8.15.9",
     "prettier": "^3.2.4",
     "qrcodejs2": "^0.0.2",
     "vant": "^4.6.6",

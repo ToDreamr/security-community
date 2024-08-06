@@ -49,24 +49,40 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String authorization = request.getHeader("Authorization");
         log.info("请求路径：{}，尝试获取头部authorization：{}",requestURI,authorization);
-        if (requestURI.equals("/auth/code")){
-            filterChain.doFilter(request,response);
+        switch (requestURI){
+            case "/auth/code" -> {
+                filterChain.doFilter(request, response);
+            }
+            case "/auth/login" -> {
+                if (authorization!=null){
+                    if (utils.toUser(utils.resolve(authorization))!=null) {
+                        filterChain.doFilter(request, response);
+                    }
+                    else {
+                        response.setStatus(401);
+                        return;
+                    }
+                }
+            }
         }
         try {
-            DecodedJWT jwt = utils.resolve(authorization);
-            if(jwt != null) {
-                LoginUser user = utils.toUser(jwt);
-                //在下面实现对用户名密码权限框架的判断
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authentication);//安全上下文
-                request.setAttribute("user",utils.toUser(jwt));
-                request.authenticate(response);//最后认证完成
-            }
-            filterChain.doFilter(request,response);
+           loginCheck(request,response,filterChain,authorization,utils);
         }catch (JWTDecodeException e){
             e.printStackTrace();
            log.error("访问权限失败，用户token错误 "+e.getMessage());
         }
+    }
+    private void loginCheck(HttpServletRequest request, @NotNull HttpServletResponse response, FilterChain filterChain,String authorization,JwtUtils utils) throws ServletException, IOException {
+        DecodedJWT decodedJWT = utils.resolve(authorization);
+        if (decodedJWT!=null){
+            LoginUser user = utils.toUser(decodedJWT);
+            //在下面实现对用户名密码权限框架的判断
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(authentication);//安全上下文
+            request.setAttribute("user",utils.toUser(decodedJWT));
+            request.authenticate(response);//最后认证完成
+        }
+        filterChain.doFilter(request,response);
     }
 }

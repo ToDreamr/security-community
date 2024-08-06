@@ -39,8 +39,7 @@ public class LoginController<T> {
         return userService.sendCode(email);
     }
     @GetMapping("/captchaImage")
-    public void imgValidateCode(HttpServletRequest request,HttpServletResponse response) throws IOException
-    {
+    public void imgValidateCode(HttpServletRequest request,HttpServletResponse response) throws IOException {
         userService.imgValidateCode(request,response);
     }
 }

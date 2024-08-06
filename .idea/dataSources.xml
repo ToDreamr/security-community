@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="6b763fec-5f0d-4e35-932d-8da01460fa3e">
+    <data-source source="LOCAL" name="@localhost" uuid="1fafeea5-9b67-4865-80f4-4dd933288187">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <remarks>8.0.29连接</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
-      <driver-properties>
-        <property name="enabledTLSProtocols" value="TLSv1, TLSv1.1, TLSv1.2, TLSv1.3" />
-      </driver-properties>
     </data-source>
   </component>
 </project>

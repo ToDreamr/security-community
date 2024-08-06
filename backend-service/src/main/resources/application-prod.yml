@@ -1,25 +1,25 @@
 server:
-  port: 9200
+  port: 9201
 file:
-  ip: 192.120.184.44
+  ip: localhost
 spring:
-  account: '484510171qq.com'
+  account: ${backend.account}
   mail:
-    host: "smtp.qq.com"
-    port: 25
-    username: 484510171qq.com
-    password: tsoqdcghdzqobhii
+    host: ${backend.mail.host}
+    port: ${backend.mail.port}
+    username: ${backend.mail.username}
+    password: ${backend.mail.password}
     default-encoding: utf-8
     test-connection: true
     properties:
       connection-timeout: 500
   security:
     jwt:
-      key: 'Rainy-Heights'
-      expire: 72
+      key: ${backend.security.security.jwt.key}
+      expire: ${backend.security.security.jwt.expire}
     user:
-      name: 123
-      password: 123
+      name: ${backend.security.security.user.name}
+      password: ${backend.datasource.password}
     filter:
       order: -120
   web:
@@ -31,13 +31,15 @@ spring:
     redis:
       port: 6379
   datasource:
-    url: jdbc:mysql://192.120.184.44:3306/bootdemo
-    password: 123456
-    username: root
-url: 127.0.0.1
+    url: jdbc:mysql://${backend.datasource.host}:${backend.datasource.port}/${backend.datasource.database}
+    password: ${backend.datasource.password}
+    username: ${backend.datasource.username}
+    driver-class-name: ${backend.datasource.driver-class-name}
 logging:
   pattern:
     dateformat: HH:mm:ss
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+url: ${backend.url}
+

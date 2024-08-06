@@ -66,6 +66,9 @@ public class SecurityConfig{
                         .successHandler(new LoginSuccessHandler(userService,jwtUtils,stringRedisTemplate))
                         .failureHandler(new LoginFailureHandler())
                 )
+                //同一用户在不同地点只允许登录一次，不允许重复登录
+                .sessionManagement(conf->conf.
+                        maximumSessions(1).expiredUrl("/auth/login"))
                 //配置记住我
                 .rememberMe(conf->conf
                         .rememberMeParameter("rememberMe")

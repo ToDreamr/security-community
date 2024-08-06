@@ -1,3 +1,27 @@
 spring:
   profiles:
     active: dev
+
+backend:
+  account: '春江花朝秋月夜'
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: backend-base
+    username: root
+    password: 123456
+  url: 127.0.0.1
+  security:
+    security:
+      jwt:
+        key: 'Rainy-Heights'
+        expire: 72
+      user:
+        name: 123
+        password: 123
+  mail:
+    host: "smtp.qq.com"
+    port: 25
+    username: 484510171@qq.com
+    password: tsoqdcghdzqobhii

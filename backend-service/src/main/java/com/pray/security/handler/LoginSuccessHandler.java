@@ -50,6 +50,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         String jwtToken = jwtUtils.createJwt(principal, principal.getUsername());
 
         String userKey = PrayConstants.LOGIN_USER_KEY + jwtToken;
+
         //构建视图层返回对象
         AuthorizeVO vo = new AuthorizeVO();
         vo.setToken(jwtToken);

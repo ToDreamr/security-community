@@ -8,12 +8,10 @@ import org.springframework.context.annotation.ComponentScan;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URLClassLoader;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * PrayApplicationTest

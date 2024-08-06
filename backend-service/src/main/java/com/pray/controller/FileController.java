@@ -2,8 +2,11 @@ package com.pray.controller;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
+import com.pray.annotation.BackendBaseLog;
+import com.pray.annotation.LoginCheck;
 import com.pray.utils.Result;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,5 +41,11 @@ public class FileController {
         }
         FileUtil.writeBytes(file.getBytes(), rootFilePath);
         return Result.ok("http://" + ip + ":" + port + "/files/" + flag);
+    }
+    @GetMapping("/loginCheck")
+    @LoginCheck
+    @BackendBaseLog(title = "登录校验",serviceType = "校验服务")
+    public Result<String> checkAnnotationLogin(){
+        return Result.ok("You are authorized");
     }
 }
