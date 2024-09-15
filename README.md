@@ -1,4 +1,4 @@
-# 基于Spring6+JDK18的SpringSecurity环境的项目
+# 基于Spring6+JDK17的SpringSecurity环境的项目
 
 #### 基本实现的功能
 
